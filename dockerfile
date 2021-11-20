@@ -1,5 +1,4 @@
-FROM httpd:2.4
-WORKDIR /usr/local/apache2/htdocs
-RUN rm /usr/local/apache2/htdocs/*
-COPY website .
-EXPOSE 80
+FROM devopsedu/webapp
+ADD website /var/www/html
+RUN rm /var/www/html/index.html
+CMD apachectl -D FOREGROUND
